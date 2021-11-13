@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.EmployeDto;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Timesheet;
@@ -237,8 +239,18 @@ public class EmployeServiceImpl implements IEmployeService {
 		return (List<Employe>) employeRepository.findAll();
 	}
 
-	
+	@Override
+	public Employe mapToEntity(EmployeDto employeDto) {
+		ModelMapper modelMapper = new ModelMapper();
+		return modelMapper.map(employeDto, Employe.class);
+
+	}
+
+	@Override
+	public EmployeDto mapToDto(Employe employe) {
+		ModelMapper modelMapper = new ModelMapper();
+		return modelMapper.map(employe, EmployeDto.class);
+	}
 
 	
-
 }
