@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import tn.esprit.spring.entities.Contrat;
+import tn.esprit.spring.entities.ContratDto;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.EmployeDto;
 import tn.esprit.spring.entities.Entreprise;
@@ -44,6 +45,8 @@ public interface IEmployeService {
 
 	
 
+	public Contrat mapToEntityC(ContratDto contratDto);
+	public ContratDto mapToDtoC(Contrat contrat);
 
 
 

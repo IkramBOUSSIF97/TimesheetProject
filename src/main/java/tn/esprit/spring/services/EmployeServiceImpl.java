@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tn.esprit.spring.entities.Contrat;
+import tn.esprit.spring.entities.ContratDto;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.EmployeDto;
@@ -250,6 +251,20 @@ public class EmployeServiceImpl implements IEmployeService {
 	public EmployeDto mapToDto(Employe employe) {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(employe, EmployeDto.class);
+	}
+	
+	@Override
+	public Contrat mapToEntityC(ContratDto contratDto) {
+		ModelMapper modelMapper = new ModelMapper();
+		return modelMapper.map(contratDto, Contrat.class);
+
+	}
+
+	@Override
+	public ContratDto mapToDtoC(Contrat contrat) {
+		ModelMapper modelMapper = new ModelMapper();
+		return modelMapper.map(contrat, ContratDto.class);
+
 	}
 
 	
