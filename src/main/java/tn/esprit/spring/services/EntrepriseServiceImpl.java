@@ -56,12 +56,15 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 //ikram
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+		boolean val= false;
 		List<String> depNames = new ArrayList<>();
+		 val= entrepriseRepoistory.findById(entrepriseId).isPresent();
+		 if (val) {
+		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 		for (Departement dep : entrepriseManagedEntity.getDepartements()) {
 			depNames.add(dep.getName());
 		}
-
+		 } 
 		return depNames;
 	}
 	
