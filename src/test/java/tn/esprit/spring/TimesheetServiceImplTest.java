@@ -1,4 +1,4 @@
-package tn.esprit.spring.test;
+package tn.esprit.spring;
 
 public class TimesheetServiceImplTest {
 
